@@ -1,0 +1,41 @@
+{
+  "name": "pusher.blender",
+  "description": "pusher.blender is a module for reading data from .blend Blender files",
+  "url": "http://tech.pusherhq.com/",
+  "author": {
+    "name": "Pusher, Inc.",
+    "email": "tech@pusherhq.com"
+  },
+  "version": "0.1.2",
+  "main": "./lib/pusher.blender.js",
+  "scripts": {
+    "test": "nodeunit test/basics.js",
+    "demo": "node examples/example-01.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nodeunit": "*",
+    "benchmark": "*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/pusherhq/pusher.blender.git"
+  },
+  "keywords": [
+    "blender",
+    "blender3d",
+    "3d",
+    "format",
+    "parse",
+    ".blend"
+  ],
+  "readme": "# pusher.blender\r\n\r\npusher.blender is a module for parsing data from .blend files saved by [Blender](http://www.blender3d.org).  The [file format](http://www.blender.org/development/architecture/blender-file-format/) is described on the blender.org site.\r\n\r\n_Note: please encourage further development by providing feedback on this module and how you use it!_\r\n\r\n## Examples\r\n\r\nIn the pusher.blender directory, run the examples:\r\n\r\n    $ node examples/example-01.js\r\n    $ node examples/example-02.js\r\n    etc.\r\n\r\nThe examples demonstrate how to extract data from the .blend file. For example, here's some of the partial output from example-01.js\r\n\r\n    Opening file:  data/unitCube-000.blend\r\n    File version:  257\r\n    Mesh at 0x2959559940 total vertices/faces/edges: 8/6/12\r\n    Object:\r\n    { \r\n      ...\r\n      mat: 4026607364,\r\n      ...   \r\n      totvert: 8,\r\n      totedge: 12,\r\n      totface: 6,\r\n      ...\r\n      loc: [ 5.960464477539063e-8, -1.1920928955078125e-7, 0 ],\r\n      size: [ 1.0000004768371582, 1.0000004768371582, 1 ],\r\n      rot: [ 0, 0, 0 ],\r\n      texflag: 1,\r\n      drawflag: 67,\r\n      smoothresh: 30,\r\n      ... }\r\n\r\nThe field names in the JSON represent the field names extracted from the Blender SDNA format.  Therefore, using the format documentation you should be able to extract any and all data you need.\r\n      \r\n## Usage\r\n\r\n_(Jump straight to the \"examples\" folder for in the [git repository](https://bitbucket.org/pusherhq/pusher.blender/src/master/examples) for more detailed information on usage of the module.)_\r\n\r\nThe parser is fairly **low-level**: its goal is to make traversing the [Blender \"SDNA\" structures](http://www.atmind.nl/blender/blender-sdna.html) easier, not to invent a new intermediate 3D format.  It works by reading in the index of all types, structures, and blocks from the file and providing access methods for those blocks.\r\n\r\nThe client code still needs to direct the traversal of the blocks of interest.  This is left to the client in order to (a) avoid loading what the client does not need, and (b) avoid enforcing use of some intermediate data structure for 3D point, normals, etc. that might require yet-another format conversion to get to the data format the client code needs.\r\n\r\nThe examples are the best way to understand the library:\r\n\r\n* [Example 01](https://bitbucket.org/pusherhq/pusher.blender/src/master/examples/example-01.js) - read basic mesh info \r\n* [Example 02](https://bitbucket.org/pusherhq/pusher.blender/src/master/examples/example-02.js) - read positions and normals from a mesh\r\n\r\n## Unit Tests\r\n\r\nUnit testing uses node-unit.  The standard command ``npm install --dev`` will install the development dependencies.  Then run the tests using:\r\n\r\n    npm test\r\n\r\n## Benchmarks\r\n\r\n## Benchmarks\r\n\r\nThe benchmarks use ```benchmarkjs``.  Be sure to run ``npm install --dev`` prior to running the benchmarks.\r\n\r\n    node benchmark/benchmark.js\r\n\r\n## License\r\n\r\nLicensed under the MIT license.\r\n\r\n\r\n",
+  "readmeFilename": "README.md",
+  "_id": "pusher.blender@0.1.2",
+  "dist": {
+    "shasum": "8dffd1741a3f081bd5c2a37b5a5b44cde5972840"
+  },
+  "_from": "pusher.blender@*",
+  "_resolved": "http://registry.npmjs.org/pusher.blender/-/pusher.blender-0.1.2.tgz"
+}
